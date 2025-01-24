@@ -41,8 +41,8 @@ pico_set_program_name(GPIOparte2 "GPIOparte2")
 pico_set_program_version(GPIOparte2 "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(GPIOparte2 1)
-pico_enable_stdio_usb(GPIOparte2 1)
+pico_enable_stdio_uart(GPIOparte2 0)
+pico_enable_stdio_usb(GPIOparte2 0)
 
 # Add the standard library to the build
 target_link_libraries(GPIOparte2
@@ -50,7 +50,7 @@ target_link_libraries(GPIOparte2
 
 # Add the standard include files to the build
 target_include_directories(GPIOparte2 PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+  ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
@@ -60,3 +60,8 @@ target_link_libraries(GPIOparte2
 
 pico_add_extra_outputs(GPIOparte2)
 
+if (PICO_CYW43_SUPPORTED)
+    target_link_libraries(GPIOparte2 pico_cyw43_arch_none)
+endif()
+
+target_link_libraries(GPIOparte2 hardware_pwm)
