@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/2024.uf2'
+elf = 'build/2024.elf'
