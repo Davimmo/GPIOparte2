@@ -94,402 +94,397 @@ void npInit(uint pin) {
     npClear();
 
     // Aqui, você desenha nos LEDs.
-    while(true){
-        //frame 1:
-        npSetLED(0, RED);
-        npSetLED(9, RED);
-        npSetLED(20, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
 
-        //frame 2:
-        npSetLED(0, RED);
-        npSetLED(1, RED);
-        npSetLED(8, RED);
-        npSetLED(10, RED);
-        npSetLED(20, RED);
-        npSetLED(21, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
+    //frame 1:
+    npSetLED(0, RED);
+    npSetLED(9, RED);
+    npSetLED(20, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
 
-        //frame 3:
-        npSetLED(0, RED);
-        npSetLED(1, RED);
-        npSetLED(2, RED);
-        npSetLED(7, RED);
-        npSetLED(11, RED);
-        npSetLED(19, RED);
-        npSetLED(20, RED);
-        npSetLED(21, RED);
-        npSetLED(22, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
+    //frame 2:
+    npSetLED(0, RED);
+    npSetLED(1, RED);
+    npSetLED(8, RED);
+    npSetLED(10, RED);
+    npSetLED(20, RED);
+    npSetLED(21, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
 
-        //frame 4:
-        npSetLED(1, RED);
-        npSetLED(2, RED);
-        npSetLED(3, RED);
-        npSetLED(6, RED);
-        npSetLED(12, RED);
-        npSetLED(18, RED);
-        npSetLED(21, RED);
-        npSetLED(22, RED);
-        npSetLED(23, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
+    //frame 3:
+    npSetLED(0, RED);
+    npSetLED(1, RED);
+    npSetLED(2, RED);
+    npSetLED(7, RED);
+    npSetLED(11, RED);
+    npSetLED(19, RED);
+    npSetLED(20, RED);
+    npSetLED(21, RED);
+    npSetLED(22, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
 
-        //frame 5:
-        npSetLED(2, RED);
-        npSetLED(3, RED);
-        npSetLED(4, RED);
-        npSetLED(5, RED);
-        npSetLED(13, RED);
-        npSetLED(17, RED);
-        npSetLED(22, RED);
-        npSetLED(23, RED);
-        npSetLED(24, RED);
-        npSetLED(0, RED);
-        npSetLED(9, RED);
-        npSetLED(10, RED);
-        npSetLED(19, RED);
-        npSetLED(20, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-        
+    //frame 4:
+    npSetLED(1, RED);
+    npSetLED(2, RED);
+    npSetLED(3, RED);
+    npSetLED(6, RED);
+    npSetLED(12, RED);
+    npSetLED(18, RED);
+    npSetLED(21, RED);
+    npSetLED(22, RED);
+    npSetLED(23, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
 
-        //frame 6:
-        npSetLED(4, RED);
-        npSetLED(3, RED);
-        npSetLED(14, RED);
-        npSetLED(16, RED);
-        npSetLED(23, RED);
-        npSetLED(24, RED);
-        npSetLED(0, RED);
-        npSetLED(1, RED);
-        npSetLED(8, RED);
-        npSetLED(18, RED);
-        npSetLED(21, RED);
-        npSetLED(11, RED);
-        npSetLED(20, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 7:
-        npSetLED(4, RED);
-        npSetLED(15, RED);
-        npSetLED(24, RED);
-        npSetLED(0, RED);
-        npSetLED(1, RED);
-        npSetLED(2, RED);
-        npSetLED(7, RED);
-        npSetLED(12, RED);
-        npSetLED(17, RED);
-        npSetLED(22, RED);
-        npSetLED(21, RED);
-        npSetLED(19, RED);
-        npSetLED(20, RED);
-        npSetLED(10, RED);
-        npSetLED(9, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 8:
-        npSetLED(1, RED);
-        npSetLED(2, RED);
-        npSetLED(3, RED);
-        npSetLED(6, RED);
-        npSetLED(13, RED);
-        npSetLED(16, RED);
-        npSetLED(23, RED);
-        npSetLED(22, RED);
-        npSetLED(21, RED);
-        npSetLED(18, RED);
-        npSetLED(11, RED);
-        npSetLED(8, RED);
-        npSetLED(1, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-
-        //frame 9:
-        npSetLED(0, RED);
-        npSetLED(9, RED);
-        npSetLED(20, RED);
-        npSetLED(2, RED);
-        npSetLED(3, RED);
-        npSetLED(4, RED);
-        npSetLED(5, RED);
-        npSetLED(14, RED);
-        npSetLED(15, RED);
-        npSetLED(24, RED);
-        npSetLED(23, RED);
-        npSetLED(22, RED);
-        npSetLED(17, RED);
-        npSetLED(12, RED);
-        npSetLED(7, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 10:
-        npSetLED(3, RED);
-        npSetLED(4, RED);
-        npSetLED(6, RED);
-        npSetLED(13, RED);
-        npSetLED(16, RED);
-        npSetLED(23, RED);
-        npSetLED(24, RED);
-        npSetLED(21, RED);
-        npSetLED(20, RED);
-        npSetLED(10, RED);
-        npSetLED(8, RED);
-        npSetLED(1, RED);
-        npSetLED(0, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 11:
-        npSetLED(5, RED);
-        npSetLED(4, RED);
-        npSetLED(14, RED);
-        npSetLED(15, RED);
-        npSetLED(24, RED);
-        npSetLED(22, RED);
-        npSetLED(21, RED);
-        npSetLED(20, RED);
-        npSetLED(19, RED);
-        npSetLED(11, RED);
-        npSetLED(7, RED);
-        npSetLED(0, RED);
-        npSetLED(1, RED);
-        npSetLED(2, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 12:
-        npSetLED(1, RED);
-        npSetLED(2, RED);
-        npSetLED(3, RED);
-        npSetLED(6, RED);
-        npSetLED(12, RED);
-        npSetLED(18, RED);
-        npSetLED(21, RED);
-        npSetLED(22, RED);
-        npSetLED(23, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 13:
-        npSetLED(2, RED);
-        npSetLED(3, RED);
-        npSetLED(4, RED);
-        npSetLED(5, RED);
-        npSetLED(13, RED);
-        npSetLED(17, RED);
-        npSetLED(22, RED);
-        npSetLED(23, RED);
-        npSetLED(24, RED);
-        npSetLED(10, RED);
-        npSetLED(19, RED);
-        npSetLED(20, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 14:
-        npSetLED(24, RED);
-        npSetLED(23, RED);
-        npSetLED(16, RED);
-        npSetLED(14, RED);
-        npSetLED(4, RED);
-        npSetLED(3, RED);
-        npSetLED(21, RED);
-        npSetLED(18, RED);
-        npSetLED(11, RED);
-        npSetLED(10, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 15:
-        npSetLED(24, RED);
-        npSetLED(15, RED);
-        npSetLED(4, RED);
-        npSetLED(22, RED);
-        npSetLED(17, RED);
-        npSetLED(11, RED);
-        npSetLED(12, RED);
-        npSetLED(10, RED);
-        npSetLED(19, RED);
-        npSetLED(9, RED);
-        npSetLED(20, RED);
-        npSetLED(0, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 16:
-        npSetLED(23, RED);
-        npSetLED(16, RED);
-        npSetLED(13, RED);
-        npSetLED(12, RED);
-        npSetLED(21, RED);
-        npSetLED(11, RED);
-        npSetLED(18, RED);
-        npSetLED(8, RED);
-        npSetLED(1, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 17:
-        npSetLED(23, BLUE);
-        npSetLED(16, BLUE);
-        npSetLED(13, RED);
-        npSetLED(12, RED);
-        npSetLED(21, RED);
-        npSetLED(11, RED);
-        npSetLED(18, RED);
-        npSetLED(8, RED);
-        npSetLED(1, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 18:
-        npSetLED(23, BLUE);
-        npSetLED(16, BLUE);
-        npSetLED(13, BLUE);
-        npSetLED(12, BLUE);
-        npSetLED(21, RED);
-        npSetLED(11, RED);
-        npSetLED(18, RED);
-        npSetLED(8, RED);
-        npSetLED(1, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 19:
-        npSetLED(23, BLUE);
-        npSetLED(16, BLUE);
-        npSetLED(13, BLUE);
-        npSetLED(12, BLUE);
-        npSetLED(21, RED);
-        npSetLED(11, BLUE);
-        npSetLED(18, RED);
-        npSetLED(8, RED);
-        npSetLED(1, RED);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 20:
-        npSetLED(23, BLUE);
-        npSetLED(16, BLUE);
-        npSetLED(13, BLUE);
-        npSetLED(12, BLUE);
-        npSetLED(21, RED);
-        npSetLED(11, BLUE);
-        npSetLED(18, RED);
-        npSetLED(8, BLUE);
-        npSetLED(1, BLUE);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 21:
-        npSetLED(23, BLUE);
-        npSetLED(16, BLUE);
-        npSetLED(13, BLUE);
-        npSetLED(12, BLUE);
-        npSetLED(21, BLUE);
-        npSetLED(11, BLUE);
-        npSetLED(18, BLUE);
-        npSetLED(8, BLUE);
-        npSetLED(1, BLUE);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 22:
-        npSetLED(23, BLUE);
-        npSetLED(16, BLUE);
-        npSetLED(13, BLUE);
-        npSetLED(12, BLUE);
-        npSetLED(21, BLUE);
-        npSetLED(18, BLUE);
-        npSetLED(8, BLUE);
-        npSetLED(1, BLUE);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 23:
-        npSetLED(23, BLUE);
-        npSetLED(22, BLUE);
-        npSetLED(16, BLUE);
-        npSetLED(13, BLUE);
-        npSetLED(12, BLUE);
-        npSetLED(21, BLUE);
-        npSetLED(18, BLUE);
-        npSetLED(8, BLUE);
-        npSetLED(1, BLUE);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-        //frame 24:
-        npSetLED(23, BLUE);
-        npSetLED(22, BLUE);
-        npSetLED(16, BLUE);
-        npSetLED(13, BLUE);
-        npSetLED(12, BLUE);
-        npSetLED(21, BLUE);
-        npSetLED(2, BLUE);
-        npSetLED(8, BLUE);
-        npSetLED(1, BLUE);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-
-
-        //frame 24:
-        npSetLED(23, BLUE);
-        npSetLED(22, BLUE);
-        npSetLED(16, BLUE);
-        npSetLED(13, BLUE);
-        npSetLED(12, BLUE);
-        npSetLED(21, BLUE);
-        npSetLED(2, BLUE);
-        npSetLED(8, BLUE);
-        npSetLED(1, BLUE);
-        npSetLED(11, BLUE);
-        npSetLED(3, BLUE);
-        npWrite(); 
-        sleep_ms(delay);
-        npClear();
-        
+    //frame 5:
+    npSetLED(2, RED);
+    npSetLED(3, RED);
+    npSetLED(4, RED);
+    npSetLED(5, RED);
+    npSetLED(13, RED);
+    npSetLED(17, RED);
+    npSetLED(22, RED);
+    npSetLED(23, RED);
+    npSetLED(24, RED);
+    npSetLED(0, RED);
+    npSetLED(9, RED);
+    npSetLED(10, RED);
+    npSetLED(19, RED);
+    npSetLED(20, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
     
-       sleep_ms(4000);
-    }
+
+    //frame 6:
+    npSetLED(4, RED);
+    npSetLED(3, RED);
+    npSetLED(14, RED);
+    npSetLED(16, RED);
+    npSetLED(23, RED);
+    npSetLED(24, RED);
+    npSetLED(0, RED);
+    npSetLED(1, RED);
+    npSetLED(8, RED);
+    npSetLED(18, RED);
+    npSetLED(21, RED);
+    npSetLED(11, RED);
+    npSetLED(20, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 7:
+    npSetLED(4, RED);
+    npSetLED(15, RED);
+    npSetLED(24, RED);
+    npSetLED(0, RED);
+    npSetLED(1, RED);
+    npSetLED(2, RED);
+    npSetLED(7, RED);
+    npSetLED(12, RED);
+    npSetLED(17, RED);
+    npSetLED(22, RED);
+    npSetLED(21, RED);
+    npSetLED(19, RED);
+    npSetLED(20, RED);
+    npSetLED(10, RED);
+    npSetLED(9, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 8:
+    npSetLED(1, RED);
+    npSetLED(2, RED);
+    npSetLED(3, RED);
+    npSetLED(6, RED);
+    npSetLED(13, RED);
+    npSetLED(16, RED);
+    npSetLED(23, RED);
+    npSetLED(22, RED);
+    npSetLED(21, RED);
+    npSetLED(18, RED);
+    npSetLED(11, RED);
+    npSetLED(8, RED);
+    npSetLED(1, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+
+    //frame 9:
+    npSetLED(0, RED);
+    npSetLED(9, RED);
+    npSetLED(20, RED);
+    npSetLED(2, RED);
+    npSetLED(3, RED);
+    npSetLED(4, RED);
+    npSetLED(5, RED);
+    npSetLED(14, RED);
+    npSetLED(15, RED);
+    npSetLED(24, RED);
+    npSetLED(23, RED);
+    npSetLED(22, RED);
+    npSetLED(17, RED);
+    npSetLED(12, RED);
+    npSetLED(7, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 10:
+    npSetLED(3, RED);
+    npSetLED(4, RED);
+    npSetLED(6, RED);
+    npSetLED(13, RED);
+    npSetLED(16, RED);
+    npSetLED(23, RED);
+    npSetLED(24, RED);
+    npSetLED(21, RED);
+    npSetLED(20, RED);
+    npSetLED(10, RED);
+    npSetLED(8, RED);
+    npSetLED(1, RED);
+    npSetLED(0, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 11:
+    npSetLED(5, RED);
+    npSetLED(4, RED);
+    npSetLED(14, RED);
+    npSetLED(15, RED);
+    npSetLED(24, RED);
+    npSetLED(22, RED);
+    npSetLED(21, RED);
+    npSetLED(20, RED);
+    npSetLED(19, RED);
+    npSetLED(11, RED);
+    npSetLED(7, RED);
+    npSetLED(0, RED);
+    npSetLED(1, RED);
+    npSetLED(2, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 12:
+    npSetLED(1, RED);
+    npSetLED(2, RED);
+    npSetLED(3, RED);
+    npSetLED(6, RED);
+    npSetLED(12, RED);
+    npSetLED(18, RED);
+    npSetLED(21, RED);
+    npSetLED(22, RED);
+    npSetLED(23, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 13:
+    npSetLED(2, RED);
+    npSetLED(3, RED);
+    npSetLED(4, RED);
+    npSetLED(5, RED);
+    npSetLED(13, RED);
+    npSetLED(17, RED);
+    npSetLED(22, RED);
+    npSetLED(23, RED);
+    npSetLED(24, RED);
+    npSetLED(10, RED);
+    npSetLED(19, RED);
+    npSetLED(20, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 14:
+    npSetLED(24, RED);
+    npSetLED(23, RED);
+    npSetLED(16, RED);
+    npSetLED(14, RED);
+    npSetLED(4, RED);
+    npSetLED(3, RED);
+    npSetLED(21, RED);
+    npSetLED(18, RED);
+    npSetLED(11, RED);
+    npSetLED(10, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 15:
+    npSetLED(24, RED);
+    npSetLED(15, RED);
+    npSetLED(4, RED);
+    npSetLED(22, RED);
+    npSetLED(17, RED);
+    npSetLED(11, RED);
+    npSetLED(12, RED);
+    npSetLED(10, RED);
+    npSetLED(19, RED);
+    npSetLED(9, RED);
+    npSetLED(20, RED);
+    npSetLED(0, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 16:
+    npSetLED(23, RED);
+    npSetLED(16, RED);
+    npSetLED(13, RED);
+    npSetLED(12, RED);
+    npSetLED(21, RED);
+    npSetLED(11, RED);
+    npSetLED(18, RED);
+    npSetLED(8, RED);
+    npSetLED(1, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 17:
+    npSetLED(23, BLUE);
+    npSetLED(16, BLUE);
+    npSetLED(13, RED);
+    npSetLED(12, RED);
+    npSetLED(21, RED);
+    npSetLED(11, RED);
+    npSetLED(18, RED);
+    npSetLED(8, RED);
+    npSetLED(1, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 18:
+    npSetLED(23, BLUE);
+    npSetLED(16, BLUE);
+    npSetLED(13, BLUE);
+    npSetLED(12, BLUE);
+    npSetLED(21, RED);
+    npSetLED(11, RED);
+    npSetLED(18, RED);
+    npSetLED(8, RED);
+    npSetLED(1, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 19:
+    npSetLED(23, BLUE);
+    npSetLED(16, BLUE);
+    npSetLED(13, BLUE);
+    npSetLED(12, BLUE);
+    npSetLED(21, RED);
+    npSetLED(11, BLUE);
+    npSetLED(18, RED);
+    npSetLED(8, RED);
+    npSetLED(1, RED);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 20:
+    npSetLED(23, BLUE);
+    npSetLED(16, BLUE);
+    npSetLED(13, BLUE);
+    npSetLED(12, BLUE);
+    npSetLED(21, RED);
+    npSetLED(11, BLUE);
+    npSetLED(18, RED);
+    npSetLED(8, BLUE);
+    npSetLED(1, BLUE);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 21:
+    npSetLED(23, BLUE);
+    npSetLED(16, BLUE);
+    npSetLED(13, BLUE);
+    npSetLED(12, BLUE);
+    npSetLED(21, BLUE);
+    npSetLED(11, BLUE);
+    npSetLED(18, BLUE);
+    npSetLED(8, BLUE);
+    npSetLED(1, BLUE);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 22:
+    npSetLED(23, BLUE);
+    npSetLED(16, BLUE);
+    npSetLED(13, BLUE);
+    npSetLED(12, BLUE);
+    npSetLED(21, BLUE);
+    npSetLED(18, BLUE);
+    npSetLED(8, BLUE);
+    npSetLED(1, BLUE);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 23:
+    npSetLED(23, BLUE);
+    npSetLED(22, BLUE);
+    npSetLED(16, BLUE);
+    npSetLED(13, BLUE);
+    npSetLED(12, BLUE);
+    npSetLED(21, BLUE);
+    npSetLED(18, BLUE);
+    npSetLED(8, BLUE);
+    npSetLED(1, BLUE);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 24:
+    npSetLED(23, BLUE);
+    npSetLED(22, BLUE);
+    npSetLED(16, BLUE);
+    npSetLED(13, BLUE);
+    npSetLED(12, BLUE);
+    npSetLED(21, BLUE);
+    npSetLED(2, BLUE);
+    npSetLED(8, BLUE);
+    npSetLED(1, BLUE);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+
+    //frame 24:
+    npSetLED(23, BLUE);
+    npSetLED(22, BLUE);
+    npSetLED(16, BLUE);
+    npSetLED(13, BLUE);
+    npSetLED(12, BLUE);
+    npSetLED(21, BLUE);
+    npSetLED(2, BLUE);
+    npSetLED(8, BLUE);
+    npSetLED(1, BLUE);
+    npSetLED(11, BLUE);
+    npSetLED(3, BLUE);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+    
+
+    sleep_ms(4000);
+
 
 
     npWrite(); // Escreve os dados nos LEDs.
-
-    // Não faz mais nada. Loop infinito.
-    while (true) {
-        sleep_ms(1000);
-    }
 }
