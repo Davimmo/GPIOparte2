@@ -86,13 +86,6 @@ void npInit(uint pin) {
 
    void ani(){
 
-    // Inicializa entradas e saídas.
-    stdio_init_all();
-
-    // Inicializa matriz de LEDs NeoPixel.
-    npInit(LED_PIN);
-    npClear();
-
     // Aqui, você desenha nos LEDs.
 
     //frame 1:
