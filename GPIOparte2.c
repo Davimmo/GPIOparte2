@@ -1,25 +1,22 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"
+#include "hardware/pio.h"
+#include "hardware/clocks.h"
+#include "ani.h"
 
 
-#define LED_RED 13
-#define LED_GREEN 11
-#define LED_BLUE 12
+
 #define BUZZER 21
 
 #define BUZZER_PIN 21 //Porta associada ao Buzzer
 #define linhas 4  // Definindo Linhas da Matriz
 #define colunas 4 // Definindo colunas da Matriz
 
+
 // Criação de matriz para ler linha e coluna do programa.
 const uint8_t PINOS_DA_LINHA[linhas] = {8, 7, 6, 5};
 const uint8_t PINOS_DA_COLUNA[colunas] = {4, 3, 2, 1};
-
-//Definição dos Pinos dos LEDs
-const uint LED_G = 11;
-const uint LED_B = 12;
-const uint LED_R = 13;
 
 
 
@@ -35,18 +32,7 @@ const char key_map[linhas][colunas] = { // criação da função para fazer o ma
 
 
 void init_gpio() {
-    // Inicializar LEDs como saída
-    gpio_init(LED_RED);
-    gpio_set_dir(LED_RED, GPIO_OUT);
-    gpio_put(LED_RED, 0); // Inicialmente desligado
-
-    gpio_init(LED_GREEN);
-    gpio_set_dir(LED_GREEN, GPIO_OUT);
-    gpio_put(LED_GREEN, 0); // Inicialmente desligado
-
-    gpio_init(LED_BLUE);
-    gpio_set_dir(LED_BLUE, GPIO_OUT);
-    gpio_put(LED_BLUE, 0); // Inicialmente desligado
+    
 
     // Inicializar buzzer como saída
     gpio_init(BUZZER);
@@ -75,13 +61,7 @@ void keypad_init()
         gpio_set_dir(PINOS_DA_COLUNA[j], GPIO_OUT);
         gpio_put(PINOS_DA_COLUNA[j], 0);
     }
-    //Inicialização dos Pino dos LEDs
-    gpio_init(LED_G);
-    gpio_set_dir(LED_G, GPIO_OUT);
-    gpio_init(LED_B);
-    gpio_set_dir(LED_B, GPIO_OUT);
-    gpio_init(LED_R);
-    gpio_set_dir(LED_R, GPIO_OUT);
+    
 }
 char read_keypad()
 {
@@ -124,11 +104,13 @@ void buzz(uint freq, uint tempo) {
 
 int main()
 {
+
     stdio_init_all();
     keypad_init();
 
     while (true)
-    {
+    {   
+        
         char key = read_keypad();
         if (key != '\0')
         {
@@ -137,99 +119,58 @@ int main()
             switch (key)
             {
             case '1':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
+            
+                ani();
+                
+                
                 break;
             case '2':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
+                
                 break;
             case '3':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
-                break;
-            case 'A':
-                // LED VERMELHO ON
-                gpio_put(LED_R, 1);
-                sleep_ms(1000);
-                gpio_put(LED_R, 0);
-
+                
+                
                 break;
 
             case '4':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
+
                 break;
+            
             case '5':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
+                
                 break;
+
             case '6':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
+                
                 break;
+
             case 'B':
-                // LED AZUL ON
-                gpio_put(LED_B, 1);
-                sleep_ms(1000);
-                gpio_put(LED_B, 0);
+                
                 break;
+
             case '7':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
+                
+                break;
+
             case '8':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
+                
                 break;
+
             case '9':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
+                
                 break;
+
             case 'C':
-                // LED VERDE ON
-                gpio_put(LED_G, 1);
-                sleep_ms(1000);
-                gpio_put(LED_G, 0);
+                
                 break;
             case '*':
-                // Simulação de controle simples
-                printf("Ligando LED vermelho\n");
-                control_output(LED_RED, true);
-                sleep_ms(500);
-
-                printf("Desligando LED vermelho\n");
-                control_output(LED_RED, false);
-                sleep_ms(500);
-
-                gpio_set_function(BUZZER_PIN, GPIO_FUNC_PWM);
-                buzz(550, 500); //Frequência de 550Hz por um tempo de 500ms
-                sleep_ms(500);
+                
                 
                 break;
             case '0':
-                // LED OFF
-                gpio_put(LED_R, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_G, 0);
+                
                 break;
+
             case '#':
                  gpio_set_function(BUZZER_PIN, GPIO_FUNC_PWM);
                  buzz(550, 500); //Frequência de 550Hz por um tempo de 500ms
@@ -239,22 +180,22 @@ int main()
                 
                 break;
 
+            case 'A':
+                // Todos os leds serão desligados
+                npClear();
+                npWrite();
+                
+               
+
+                break;
+
+
             case 'D':
 
-                // LED ON VERMELHO,VERDE E AZUL
-                gpio_put(LED_G, 1);
-                gpio_put(LED_B, 1);
-                gpio_put(LED_R, 1);
-                sleep_ms(1000);
-                gpio_put(LED_G, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_R, 0);
+                
                 break;
             default:
-                // LED OFF
-                gpio_put(LED_G, 0);
-                gpio_put(LED_B, 0);
-                gpio_put(LED_R, 0);
+                
                
                 break;
             }
