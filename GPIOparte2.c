@@ -5,7 +5,7 @@
 #include "hardware/clocks.h"
 #include "ani.h"
 
-
+#define LED_PIN 7
 
 #define BUZZER 21
 
@@ -107,6 +107,13 @@ int main()
 
     stdio_init_all();
     keypad_init();
+
+    // Inicializa entradas e saídas.
+    stdio_init_all();
+
+    // Inicializa matriz de LEDs NeoPixel.
+    npInit(LED_PIN);
+    npClear();
 
     while (true)
     {   
