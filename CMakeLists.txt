@@ -35,10 +35,13 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(GPIOparte2 GPIOparte2.c )
+add_executable(GPIOparte2 GPIOparte2.c ani.c )
 
 pico_set_program_name(GPIOparte2 "GPIOparte2")
 pico_set_program_version(GPIOparte2 "0.1")
+
+# Generate PIO header
+pico_generate_pio_header(GPIOparte2 ${CMAKE_CURRENT_LIST_DIR}/ws2818b.pio)
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(GPIOparte2 0)
@@ -64,4 +67,9 @@ if (PICO_CYW43_SUPPORTED)
     target_link_libraries(GPIOparte2 pico_cyw43_arch_none)
 endif()
 
-target_link_libraries(GPIOparte2 hardware_pwm)
+target_link_libraries(GPIOparte2 hardware_pwm
+    hardware_pio
+    hardware_clocks
+)
+
+include_directories(${CMAKE_SOURCE_DIR}/include)
