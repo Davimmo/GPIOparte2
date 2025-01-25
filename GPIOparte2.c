@@ -114,6 +114,8 @@ int main()
     // Inicializa matriz de LEDs NeoPixel.
     npInit(LED_PIN);
     npClear();
+    npWrite();
+    sleep_ms(5000);
 
     while (true)
     {   
@@ -179,9 +181,9 @@ int main()
                 break;
 
             case '#':
-                 gpio_set_function(BUZZER_PIN, GPIO_FUNC_PWM);
-                 buzz(550, 500); //Frequência de 550Hz por um tempo de 500ms
-                 sleep_ms(500);
+                gpio_set_function(BUZZER_PIN, GPIO_FUNC_PWM);
+                buzz(550, 500); //Frequência de 550Hz por um tempo de 500ms
+                sleep_ms(500);
 
                 // Buzzers
                 
