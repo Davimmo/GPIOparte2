@@ -481,3 +481,123 @@ void npInit(uint pin) {
 
     npWrite(); // Escreve os dados nos LEDs.
 }
+
+//mapeamento "zig-zag" na matriz
+int getIndex(int x, int y){
+	if(y%2 == 0){
+		return 24-(y * 5 + x);
+	}else{
+		return 24-(y * 5 + (4-x));
+	}
+}
+
+void animacao_nuvem(){
+        //frame 1
+        int animacao_pt1[5][5][3]={
+            {{0,0,255}, {0,255,0}, {0,0,255}, {0,0,255}, {0,0,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,0,255}, {255,255,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,0,255}},
+            {{0,0,255}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}}};
+        for(int linha = 0; linha<5; linha++){
+            for(int coluna = 0; coluna <5; coluna++){
+                int posição = getIndex(linha, coluna);
+                npSetLED(posição, animacao_pt1[coluna][linha][0],animacao_pt1[coluna][linha][1],animacao_pt1[coluna][linha][2]);
+            }
+        }
+        npWrite();
+        sleep_ms(500);
+        npClear();
+
+        //frame 2
+        int animacao_pt2[5][5][3]={
+            {{0,0,255}, {0,255,0}, {0,0,255}, {0,0,255}, {255,255,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {255,255,255}, {255,255,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,0,255}},
+            {{0,0,255}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}}};
+        for(int linha = 0; linha<5; linha++){
+            for(int coluna = 0; coluna <5; coluna++){
+                int posição = getIndex(linha, coluna);
+                npSetLED(posição, animacao_pt2[coluna][linha][0],animacao_pt2[coluna][linha][1],animacao_pt2[coluna][linha][2]);
+            }
+        }
+        npWrite();
+        sleep_ms(500);
+        npClear();
+
+        //frame 3
+        int animacao_pt3[5][5][3]={
+            {{0,0,255}, {0,255,0}, {0,0,255}, {255,255,255}, {255,255,255}},
+            {{0,255,0}, {0,255,0}, {255,255,255}, {255,255,255}, {255,255,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,0,255}},
+            {{0,0,255}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}}}; 
+        for(int linha = 0; linha<5; linha++){
+            for(int coluna = 0; coluna <5; coluna++){
+                int posição = getIndex(linha, coluna);
+                npSetLED(posição, animacao_pt3[coluna][linha][0],animacao_pt3[coluna][linha][1],animacao_pt3[coluna][linha][2]);
+            }
+        }
+        npWrite();
+        sleep_ms(500);
+        npClear();
+
+        //frame 4
+        int animacao_pt4[5][5][3]={
+            {{0,0,255}, {0,255,0}, {255,255,255}, {255,255,255}, {0,0,255}},
+            {{0,255,0}, {255,255,255}, {255,255,255}, {255,255,255}, {255,255,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,0,255}},
+            {{0,0,255}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}}};
+        for(int linha = 0; linha<5; linha++){
+            for(int coluna = 0; coluna <5; coluna++){
+                int posição = getIndex(linha, coluna);
+                npSetLED(posição, animacao_pt4[coluna][linha][0],animacao_pt4[coluna][linha][1],animacao_pt4[coluna][linha][2]);
+            }
+        }
+        npWrite();
+        sleep_ms(500);
+        npClear();
+
+        //frame 5
+        int animacao_pt5[5][5][3]={
+            {{0,0,255}, {255,255,255}, {255,255,255}, {0,0,255}, {0,0,255}},
+            {{255,255,255}, {255,255,255}, {255,255,255}, {255,255,255}, {0,0,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,0,255}},
+            {{0,0,255}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}},
+            {{0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}, {0,255,0}}};
+        for(int linha = 0; linha<5; linha++){
+            for(int coluna = 0; coluna <5; coluna++){
+                int posição = getIndex(linha, coluna);
+                npSetLED(posição, animacao_pt5[coluna][linha][0],animacao_pt5[coluna][linha][1],animacao_pt5[coluna][linha][2]);
+            }
+        }
+        npWrite();
+        sleep_ms(500);
+
+        npClear();
+        sleep_ms(500);
+        npWrite();
+}
+
+void tecla_c(){
+    int vermelho[5][5][3]={
+        {{204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}},
+        {{204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}},
+        {{204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}},
+        {{204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}},
+        {{204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}, {204,0,0}},
+        };
+    for(int linha = 0; linha<5; linha++){
+            for(int coluna = 0; coluna <5; coluna++){
+                int posição = getIndex(linha, coluna);
+                npSetLED(posição, vermelho[coluna][linha][0],vermelho[coluna][linha][1],vermelho[coluna][linha][2]);
+            }
+        }
+    npWrite();
+    sleep_ms(4000);
+    npClear();
+    sleep_ms(4000);
+    npWrite();
+}
