@@ -185,10 +185,13 @@ int main()
                 buzz(550, 500); //Frequência de 550Hz por um tempo de 500ms
                 sleep_ms(500);
 
-                // Buzzers
-                
+                for (int i = 0; i < 25; i++) {   
+                    // 20% de 255 é aproximadamente 51
+                    npSetColor(i, 51, 51, 51);  
+                }
+                npWrite();
                 break;
-
+                
             case 'A':
                 // Todos os leds serão desligados
                 npClear();
