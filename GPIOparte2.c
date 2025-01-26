@@ -4,6 +4,9 @@
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
 #include "ani.h"
+#include "snake_game.h"
+
+
 
 #define LED_PIN 7
 
@@ -17,8 +20,6 @@
 // Criação de matriz para ler linha e coluna do programa.
 const uint8_t PINOS_DA_LINHA[linhas] = {8, 7, 6, 5};
 const uint8_t PINOS_DA_COLUNA[colunas] = {4, 3, 2, 1};
-
-
 
 
 const char key_map[linhas][colunas] = { // criação da função para fazer o mapeamento de teclas nas linhas e colunas
@@ -134,7 +135,7 @@ int main()
                 
                 break;
             case '2':
-                
+                snake_game();
                 break;
             case '3':
                 
@@ -187,7 +188,7 @@ int main()
 
                 for (int i = 0; i < 25; i++) {   
                     // 20% de 255 é aproximadamente 51
-                    npSetColor(i, 51, 51, 51);  
+                    npSetLEDColor(i, 51, 51, 51);  
                 }
                 npWrite();
                 break;
