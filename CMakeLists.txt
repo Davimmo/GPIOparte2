@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(GPIOparte2 GPIOparte2.c ani.c )
+add_executable(GPIOparte2 GPIOparte2.c ani.c snake_game.c )
 
 pico_set_program_name(GPIOparte2 "GPIOparte2")
 pico_set_program_version(GPIOparte2 "0.1")
@@ -49,7 +49,8 @@ pico_enable_stdio_usb(GPIOparte2 0)
 
 # Add the standard library to the build
 target_link_libraries(GPIOparte2
-        pico_stdlib)
+        pico_stdlib
+        pico_neopixel)
 
 # Add the standard include files to the build
 target_include_directories(GPIOparte2 PRIVATE
@@ -58,7 +59,9 @@ target_include_directories(GPIOparte2 PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(GPIOparte2 
-        
+        hardware_pwm
+        hardware_pio
+        hardware_clocks 
         )
 
 pico_add_extra_outputs(GPIOparte2)
@@ -69,7 +72,8 @@ endif()
 
 target_link_libraries(GPIOparte2 hardware_pwm
     hardware_pio
-    hardware_clocks
+    hardware_clocks 
+    pico_neopixel
 )
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
