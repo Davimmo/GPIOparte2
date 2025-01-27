@@ -88,6 +88,7 @@ void npWrite()
     }
     sleep_us(100); // Espera 100us, sinal de RESET do datasheet.
 }
+
 void LED_VERMELHO()
 {
     for (int LED_VERMELHO = 0; LED_VERMELHO < 3; LED_VERMELHO++)
@@ -120,6 +121,7 @@ void LED_VERMELHO()
     npClear();
     sleep_ms(500);
 };
+
 void LED_AZUL()
 {
     for (int LED_AZUL = 0; LED_AZUL < 3; LED_AZUL++)
@@ -150,6 +152,7 @@ void LED_AZUL()
         sleep_ms(125);
     }
 };
+
 void PrimeiraInstancia()
 {
     for (int PrimeiraInstancia = 0; PrimeiraInstancia < 2; PrimeiraInstancia++)
@@ -171,6 +174,7 @@ void PrimeiraInstancia()
         sleep_ms(250);
     }
 };
+
 void LED_TRIPLO_VERMELHO()
 {
     for (int LED_TRIPLO_VERMELHO = 0; LED_TRIPLO_VERMELHO < 2; LED_TRIPLO_VERMELHO++)
@@ -229,6 +233,7 @@ void LED_TRIPLO_VERMELHO()
         sleep_ms(100);
     }
 };
+
 void LED_TRIPLO_AZUL()
 {
     for (int LED_TRIPLO_AZUL = 0; LED_TRIPLO_AZUL < 2; LED_TRIPLO_AZUL++)
@@ -287,6 +292,7 @@ void LED_TRIPLO_AZUL()
         sleep_ms(100);
     }
 };
+
 void BRANCO()
 {
     for (int BRANCO = 0; BRANCO < 2; BRANCO++)
