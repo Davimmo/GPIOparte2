@@ -3,7 +3,7 @@
 #include "hardware/pwm.h"
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
-#include "ani.h"
+
 
 #define LED_PIN 7
 
@@ -129,7 +129,6 @@ int main()
             {
             case '1':
             
-                ani();
                 
                 
                 break;
