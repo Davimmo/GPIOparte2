@@ -199,11 +199,7 @@ int main()
                 break;
 
             case '#':
-                gpio_set_function(BUZZER_PIN, GPIO_FUNC_PWM);
-                buzz(550, 500); // Frequência de 550Hz por um tempo de 500ms
-                sleep_ms(500);
-
-                // Buzzers
+                tecla_hastag();
 
                 break;
 

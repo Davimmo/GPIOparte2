@@ -12,5 +12,6 @@ void animacao_nuvem();
 void tecla_c();
 void tecla_b();
 void tecla_d();
+void tecla_hastag();
 
 #endif

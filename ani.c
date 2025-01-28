@@ -619,6 +619,14 @@ void tecla_d(){
     }
     npWrite();
 }
+void tecla_hastag(){
+    npClear();
+    int i=0;
+    for(i=0;i<25;i++){
+        npSetLED(i,50,50,50);
+    }
+    npWrite();
+}
 
 
 
