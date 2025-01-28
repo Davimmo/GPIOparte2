@@ -190,7 +190,7 @@ int main()
                 
                 break;
             case '*':
-                //Ativa o modo bootsell quando pressionado
+                reset_usb_boot(0, 0); // Reinicia o Raspberry em modo bootloader
                 
                 break;
             case '0':
