@@ -21,8 +21,6 @@ static void gpio_irq_handler(uint gpio, uint32_t events){
 	reset_usb_boot(0,0); //habilita o modo de gravação do microcontrolador
 }
 
-//Botão de interrupção
-const uint button_0 = 5;
 
 // Criação de matriz para ler linha e coluna do programa.
 const uint8_t PINOS_DA_LINHA[linhas] = {8, 7, 6, 5};
@@ -126,13 +124,7 @@ int main()
     npWrite();
     sleep_ms(500);
 
-    //Inicializa o botão
-    gpio_init(button_0);
-    gpio_set_dir(button_0, GPIO_IN);
-    gpio_pull_up(button_0);
-    
-    //Ativa o modo bootsell quando pressionado
-    gpio_set_irq_enabled_with_callback(button_0, GPIO_IRQ_EDGE_FALL, 1, & gpio_irq_handler);
+
 
 
     while (true)
@@ -199,7 +191,6 @@ int main()
                 break;
             case '*':
                 //Ativa o modo bootsell quando pressionado
-                gpio_set_irq_enabled_with_callback(button_0, GPIO_IRQ_EDGE_FALL, 1, & gpio_irq_handler);
                 
                 break;
             case '0':
