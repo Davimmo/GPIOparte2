@@ -481,3 +481,20 @@ void npInit(uint pin) {
 
     npWrite(); // Escreve os dados nos LEDs.
 }
+
+void davi(){
+    //frame 1:
+    npSetLED(12,255,0,0);
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+
+    //frame 2:
+    npSetLED(1,255,0,0);
+    npSetLED(2,255,0,0);
+    npSetLED(3,255,0,0);
+    
+    npWrite(); 
+    sleep_ms(delay);
+    npClear();
+}
