@@ -10,12 +10,13 @@
 #define LED_COUNT 25
 #define LED_PIN 7
 #define delay 500
-#define RED 200,0,0
-#define BLUE 0,0,200
+#define RED 250, 0, 0
+#define BLUE 0, 0, 250
 
 // Definição de pixel GRB
-struct pixel_t {
-  uint8_t G, R, B; // Três valores de 8-bits compõem um pixel.
+struct pixel_t
+{
+    uint8_t G, R, B; // Três valores de 8-bits compõem um pixel.
 };
 typedef struct pixel_t pixel_t;
 typedef pixel_t npLED_t; // Mudança de nome de "struct pixel_t" para "npLED_t" por clareza.
@@ -30,7 +31,8 @@ uint sm;
 /**
  * Inicializa a máquina PIO para controle da matriz de LEDs.
  */
-void npInit(uint pin) {
+void npInit(uint pin)
+{
 
     // Cria programa PIO.
     uint offset = pio_add_program(pio0, &ws2818b_program);
@@ -38,7 +40,8 @@ void npInit(uint pin) {
 
     // Toma posse de uma máquina PIO.
     sm = pio_claim_unused_sm(np_pio, false);
-    if (sm < 0) {
+    if (sm < 0)
+    {
         np_pio = pio1;
         sm = pio_claim_unused_sm(np_pio, true); // Se nenhuma máquina estiver livre, panic!
     }
@@ -47,67 +50,73 @@ void npInit(uint pin) {
     ws2818b_program_init(np_pio, sm, offset, pin, 800000.f);
 
     // Limpa buffer de pixels.
-    for (uint i = 0; i < LED_COUNT; ++i) {
+    for (uint i = 0; i < LED_COUNT; ++i)
+    {
         leds[i].R = 0;
         leds[i].G = 0;
         leds[i].B = 0;
     }
-    }
+}
 
-    /**
-     * Atribui uma cor RGB a um LED.
-     */
-    void npSetLED(const uint index, const uint8_t r, const uint8_t g, const uint8_t b) {
+/**
+ * Atribui uma cor RGB a um LED.
+ */
+void npSetLED(const uint index, const uint8_t r, const uint8_t g, const uint8_t b)
+{
     leds[index].R = r;
     leds[index].G = g;
     leds[index].B = b;
-    }
+}
 
-    /**
-     * Limpa o buffer de pixels.
-     */
-    void npClear() {
+/**
+ * Limpa o buffer de pixels.
+ */
+void npClear()
+{
     for (uint i = 0; i < LED_COUNT; ++i)
         npSetLED(i, 0, 0, 0);
-    }
+}
 
-    /**
-     * Escreve os dados do buffer nos LEDs.
-     */
-    void npWrite() {
+/**
+ * Escreve os dados do buffer nos LEDs.
+ */
+void npWrite()
+{
     // Escreve cada dado de 8-bits dos pixels em sequência no buffer da máquina PIO.
-    for (uint i = 0; i < LED_COUNT; ++i) {
+    for (uint i = 0; i < LED_COUNT; ++i)
+    {
         pio_sm_put_blocking(np_pio, sm, leds[i].G);
         pio_sm_put_blocking(np_pio, sm, leds[i].R);
         pio_sm_put_blocking(np_pio, sm, leds[i].B);
     }
     sleep_us(100); // Espera 100us, sinal de RESET do datasheet.
-    }
+}
 
-   void ani(){
+void Yuri()
+{
 
     // Aqui, você desenha nos LEDs.
 
-    //frame 1:
+    // frame 1:
     npSetLED(0, RED);
     npSetLED(9, RED);
     npSetLED(20, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 2:
+    // frame 2:
     npSetLED(0, RED);
     npSetLED(1, RED);
     npSetLED(8, RED);
     npSetLED(10, RED);
     npSetLED(20, RED);
     npSetLED(21, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 3:
+    // frame 3:
     npSetLED(0, RED);
     npSetLED(1, RED);
     npSetLED(2, RED);
@@ -117,11 +126,11 @@ void npInit(uint pin) {
     npSetLED(20, RED);
     npSetLED(21, RED);
     npSetLED(22, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 4:
+    // frame 4:
     npSetLED(1, RED);
     npSetLED(2, RED);
     npSetLED(3, RED);
@@ -131,11 +140,11 @@ void npInit(uint pin) {
     npSetLED(21, RED);
     npSetLED(22, RED);
     npSetLED(23, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 5:
+    // frame 5:
     npSetLED(2, RED);
     npSetLED(3, RED);
     npSetLED(4, RED);
@@ -150,12 +159,11 @@ void npInit(uint pin) {
     npSetLED(10, RED);
     npSetLED(19, RED);
     npSetLED(20, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
-    
 
-    //frame 6:
+    // frame 6:
     npSetLED(4, RED);
     npSetLED(3, RED);
     npSetLED(14, RED);
@@ -169,11 +177,11 @@ void npInit(uint pin) {
     npSetLED(21, RED);
     npSetLED(11, RED);
     npSetLED(20, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 7:
+    // frame 7:
     npSetLED(4, RED);
     npSetLED(15, RED);
     npSetLED(24, RED);
@@ -189,11 +197,11 @@ void npInit(uint pin) {
     npSetLED(20, RED);
     npSetLED(10, RED);
     npSetLED(9, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 8:
+    // frame 8:
     npSetLED(1, RED);
     npSetLED(2, RED);
     npSetLED(3, RED);
@@ -207,12 +215,11 @@ void npInit(uint pin) {
     npSetLED(11, RED);
     npSetLED(8, RED);
     npSetLED(1, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-
-    //frame 9:
+    // frame 9:
     npSetLED(0, RED);
     npSetLED(9, RED);
     npSetLED(20, RED);
@@ -228,11 +235,11 @@ void npInit(uint pin) {
     npSetLED(17, RED);
     npSetLED(12, RED);
     npSetLED(7, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 10:
+    // frame 10:
     npSetLED(3, RED);
     npSetLED(4, RED);
     npSetLED(6, RED);
@@ -246,11 +253,11 @@ void npInit(uint pin) {
     npSetLED(8, RED);
     npSetLED(1, RED);
     npSetLED(0, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 11:
+    // frame 11:
     npSetLED(5, RED);
     npSetLED(4, RED);
     npSetLED(14, RED);
@@ -265,11 +272,11 @@ void npInit(uint pin) {
     npSetLED(0, RED);
     npSetLED(1, RED);
     npSetLED(2, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 12:
+    // frame 12:
     npSetLED(1, RED);
     npSetLED(2, RED);
     npSetLED(3, RED);
@@ -279,11 +286,11 @@ void npInit(uint pin) {
     npSetLED(21, RED);
     npSetLED(22, RED);
     npSetLED(23, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 13:
+    // frame 13:
     npSetLED(2, RED);
     npSetLED(3, RED);
     npSetLED(4, RED);
@@ -296,11 +303,11 @@ void npInit(uint pin) {
     npSetLED(10, RED);
     npSetLED(19, RED);
     npSetLED(20, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 14:
+    // frame 14:
     npSetLED(24, RED);
     npSetLED(23, RED);
     npSetLED(16, RED);
@@ -311,11 +318,11 @@ void npInit(uint pin) {
     npSetLED(18, RED);
     npSetLED(11, RED);
     npSetLED(10, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 15:
+    // frame 15:
     npSetLED(24, RED);
     npSetLED(15, RED);
     npSetLED(4, RED);
@@ -328,11 +335,11 @@ void npInit(uint pin) {
     npSetLED(9, RED);
     npSetLED(20, RED);
     npSetLED(0, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 16:
+    // frame 16:
     npSetLED(23, RED);
     npSetLED(16, RED);
     npSetLED(13, RED);
@@ -342,11 +349,11 @@ void npInit(uint pin) {
     npSetLED(18, RED);
     npSetLED(8, RED);
     npSetLED(1, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 17:
+    // frame 17:
     npSetLED(23, BLUE);
     npSetLED(16, BLUE);
     npSetLED(13, RED);
@@ -356,11 +363,11 @@ void npInit(uint pin) {
     npSetLED(18, RED);
     npSetLED(8, RED);
     npSetLED(1, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 18:
+    // frame 18:
     npSetLED(23, BLUE);
     npSetLED(16, BLUE);
     npSetLED(13, BLUE);
@@ -370,11 +377,11 @@ void npInit(uint pin) {
     npSetLED(18, RED);
     npSetLED(8, RED);
     npSetLED(1, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 19:
+    // frame 19:
     npSetLED(23, BLUE);
     npSetLED(16, BLUE);
     npSetLED(13, BLUE);
@@ -384,11 +391,11 @@ void npInit(uint pin) {
     npSetLED(18, RED);
     npSetLED(8, RED);
     npSetLED(1, RED);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 20:
+    // frame 20:
     npSetLED(23, BLUE);
     npSetLED(16, BLUE);
     npSetLED(13, BLUE);
@@ -398,11 +405,11 @@ void npInit(uint pin) {
     npSetLED(18, RED);
     npSetLED(8, BLUE);
     npSetLED(1, BLUE);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 21:
+    // frame 21:
     npSetLED(23, BLUE);
     npSetLED(16, BLUE);
     npSetLED(13, BLUE);
@@ -412,11 +419,11 @@ void npInit(uint pin) {
     npSetLED(18, BLUE);
     npSetLED(8, BLUE);
     npSetLED(1, BLUE);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 22:
+    // frame 22:
     npSetLED(23, BLUE);
     npSetLED(16, BLUE);
     npSetLED(13, BLUE);
@@ -425,11 +432,11 @@ void npInit(uint pin) {
     npSetLED(18, BLUE);
     npSetLED(8, BLUE);
     npSetLED(1, BLUE);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 23:
+    // frame 23:
     npSetLED(23, BLUE);
     npSetLED(22, BLUE);
     npSetLED(16, BLUE);
@@ -439,11 +446,11 @@ void npInit(uint pin) {
     npSetLED(18, BLUE);
     npSetLED(8, BLUE);
     npSetLED(1, BLUE);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-    //frame 24:
+    // frame 24:
     npSetLED(23, BLUE);
     npSetLED(22, BLUE);
     npSetLED(16, BLUE);
@@ -453,12 +460,11 @@ void npInit(uint pin) {
     npSetLED(2, BLUE);
     npSetLED(8, BLUE);
     npSetLED(1, BLUE);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
 
-
-    //frame 24:
+    // frame 24:
     npSetLED(23, BLUE);
     npSetLED(22, BLUE);
     npSetLED(16, BLUE);
@@ -470,18 +476,34 @@ void npInit(uint pin) {
     npSetLED(1, BLUE);
     npSetLED(11, BLUE);
     npSetLED(3, BLUE);
-    npWrite(); 
+    npWrite();
     sleep_ms(delay);
     npClear();
-    
 
     sleep_ms(4000);
-
-
 
     npWrite(); // Escreve os dados nos LEDs.
 }
 
+<<<<<<< HEAD
+void davi()
+{
+    // frame 1:
+    npSetLED(12, 255, 0, 0);
+    npWrite();
+    sleep_ms(delay);
+    npClear();
+
+    // frame 2:
+    npSetLED(1, 255, 0, 0);
+    npSetLED(2, 255, 0, 0);
+    npSetLED(3, 255, 0, 0);
+
+    npWrite();
+    sleep_ms(delay);
+    npClear();
+}
+=======
 
 //mapeamento "zig-zag" na matriz
 int getIndex(int x, int y){
@@ -1397,3 +1419,4 @@ void davi(){
     sleep_ms(400);
     
 }
+>>>>>>> 595a3f4abc28d3acbe27802d895766bb94aa5365

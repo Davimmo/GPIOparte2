@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(GPIOparte2 GPIOparte2.c ani.c )
+add_executable(GPIOparte2 GPIOparte2.c giroflex.c ani.c)
 
 pico_set_program_name(GPIOparte2 "GPIOparte2")
 pico_set_program_version(GPIOparte2 "0.1")
