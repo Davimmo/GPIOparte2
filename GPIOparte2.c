@@ -128,6 +128,10 @@ int main()
 
             switch (key)
             {
+            case '0':
+
+                break;
+
             case '1':
 
                 principal();
@@ -156,14 +160,9 @@ int main()
 
                 break;
 
-            case 'B':
-                tecla_b();
+            case '7':
                 break;
 
-                break;
-            case '7':
-                
-                break;
             case '8':
 
                 break;
@@ -172,17 +171,31 @@ int main()
 
                 break;
 
+            case 'A':
+                // Todos os leds serão desligados
+                npClear();
+                npWrite();
+
+                break;
+
+            case 'B':
+                tecla_b();
+                break;
+
+
             case 'C':
 
                 tecla_c();
                 
                 break;
+
+            case 'D':
+
+                break;
+                
             case '*':
                 reset_usb_boot(0, 0); // Reinicia o Raspberry em modo bootloader
                 
-                break;
-            case '0':
-
                 break;
 
             case '#':
@@ -194,16 +207,7 @@ int main()
 
                 break;
 
-            case 'A':
-                // Todos os leds serão desligados
-                npClear();
-                npWrite();
 
-                break;
-
-            case 'D':
-
-                break;
             default:
 
                 break;
