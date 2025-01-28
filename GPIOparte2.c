@@ -3,6 +3,7 @@
 #include "hardware/pwm.h"
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
+#include "pico/bootrom.h"
 #include "ani.h"
 
 #define LED_PIN 7
@@ -13,11 +14,19 @@
 #define linhas 4  // Definindo Linhas da Matriz
 #define colunas 4 // Definindo colunas da Matriz
 
+//rotina da interrupção
+static void gpio_irq_handler(uint gpio, uint32_t events){
+    printf("Interrupção ocorreu no pino %d, no evento %d\n", gpio, events);
+    printf("HABILITANDO O MODO GRAVAÇÃO");
+	reset_usb_boot(0,0); //habilita o modo de gravação do microcontrolador
+}
+
+//Botão de interrupção
+const uint button_0 = 5;
 
 // Criação de matriz para ler linha e coluna do programa.
 const uint8_t PINOS_DA_LINHA[linhas] = {8, 7, 6, 5};
 const uint8_t PINOS_DA_COLUNA[colunas] = {4, 3, 2, 1};
-
 
 
 
@@ -117,6 +126,12 @@ int main()
     npWrite();
     sleep_ms(500);
 
+    gpio_init(button_0);
+    gpio_set_dir(button_0, GPIO_IN);
+    gpio_pull_up(button_0);
+
+
+
     while (true)
     {   
         
@@ -173,7 +188,7 @@ int main()
                 
                 break;
             case '*':
-                
+                gpio_set_irq_enabled_with_callback(button_0, GPIO_IRQ_EDGE_FALL, 1, & gpio_irq_handler);
                 
                 break;
             case '0':
