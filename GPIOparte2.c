@@ -126,10 +126,13 @@ int main()
     npWrite();
     sleep_ms(500);
 
+    //Inicializa o botão
     gpio_init(button_0);
     gpio_set_dir(button_0, GPIO_IN);
     gpio_pull_up(button_0);
-
+    
+    //Ativa o modo bootsell quando pressionado
+    gpio_set_irq_enabled_with_callback(button_0, GPIO_IRQ_EDGE_FALL, 1, & gpio_irq_handler);
 
 
     while (true)
@@ -188,6 +191,7 @@ int main()
                 
                 break;
             case '*':
+                //Ativa o modo bootsell quando pressionado
                 gpio_set_irq_enabled_with_callback(button_0, GPIO_IRQ_EDGE_FALL, 1, & gpio_irq_handler);
                 
                 break;
