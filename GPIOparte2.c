@@ -152,11 +152,14 @@ int main()
                 
                 break;
             case '2':
+
+                
                 
                 break;
             case '3':
                 
-                
+                davi();
+
                 break;
 
             case '4':
