@@ -3,7 +3,7 @@
 #include "hardware/pwm.h"
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
-
+#include "giroflex.h"
 
 #define LED_PIN 7
 
@@ -133,7 +133,7 @@ int main()
                 
                 break;
             case '2':
-                
+                Giroflex();
                 break;
             case '3':
                 
