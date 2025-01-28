@@ -615,7 +615,7 @@ void tecla_d(){
     npClear();
     int i=0;
     for(i=0;i<25;i++){
-        npSetLED(i,0,127,0);
+        npSetLED(i,0,126,0);
     }
     npWrite();
 }
