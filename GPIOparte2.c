@@ -3,44 +3,21 @@
 #include "hardware/pwm.h"
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
-<<<<<<< HEAD
 #include "giroflex.h"
-=======
-#include "pico/bootrom.h"
->>>>>>> 595a3f4abc28d3acbe27802d895766bb94aa5365
 #include "ani.h"
 
 #define LED_PIN 7
 
 #define BUZZER 21
 
-<<<<<<< HEAD
 #define BUZZER_PIN 21 // Porta associada ao Buzzer
 #define linhas 4      // Definindo Linhas da Matriz
 #define colunas 4     // Definindo colunas da Matriz
-=======
-#define BUZZER_PIN 21 //Porta associada ao Buzzer
-#define linhas 4  // Definindo Linhas da Matriz
-#define colunas 4 // Definindo colunas da Matriz
-
-//rotina da interrupção
-static void gpio_irq_handler(uint gpio, uint32_t events){
-    printf("Interrupção ocorreu no pino %d, no evento %d\n", gpio, events);
-    printf("HABILITANDO O MODO GRAVAÇÃO");
-	reset_usb_boot(0,0); //habilita o modo de gravação do microcontrolador
-}
-
->>>>>>> 595a3f4abc28d3acbe27802d895766bb94aa5365
 
 // Criação de matriz para ler linha e coluna do programa.
 const uint8_t PINOS_DA_LINHA[linhas] = {8, 28, 6, 5};
 const uint8_t PINOS_DA_COLUNA[colunas] = {4, 3, 2, 1};
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 595a3f4abc28d3acbe27802d895766bb94aa5365
 const char key_map[linhas][colunas] = { // criação da função para fazer o mapeamento de teclas nas linhas e colunas
     {'1', '2', '3', 'A'},
 
@@ -157,19 +134,10 @@ int main()
                 break;
             case '2':
 
-<<<<<<< HEAD
                 Yuri();
 
                 break;
             case '3':
-=======
-                
-                
-                break;
-            case '3':
-                
-                davi();
->>>>>>> 595a3f4abc28d3acbe27802d895766bb94aa5365
 
                 break;
 
@@ -188,11 +156,8 @@ int main()
                 break;
 
             case 'B':
-<<<<<<< HEAD
-=======
                 tecla_b();
                 break;
->>>>>>> 595a3f4abc28d3acbe27802d895766bb94aa5365
 
                 break;
             case '7':
@@ -208,18 +173,12 @@ int main()
 
             case 'C':
 
-<<<<<<< HEAD
-                break;
-            case '*':
-
-=======
                 tecla_c();
                 
                 break;
             case '*':
                 reset_usb_boot(0, 0); // Reinicia o Raspberry em modo bootloader
                 
->>>>>>> 595a3f4abc28d3acbe27802d895766bb94aa5365
                 break;
             case '0':
 
