@@ -623,7 +623,7 @@ void tecla_hastag(){
     npClear();
     int i=0;
     for(i=0;i<25;i++){
-        npSetLED(i,50,50,50);
+        npSetLED(i,48,48,48);
     }
     npWrite();
 }
