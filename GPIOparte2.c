@@ -177,7 +177,7 @@ int main()
                 break;
 
             case 'B':
-                
+                tecla_b();
                 break;
 
             case '7':
