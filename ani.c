@@ -485,25 +485,6 @@ void Yuri()
     npWrite(); // Escreve os dados nos LEDs.
 }
 
-<<<<<<< HEAD
-void davi()
-{
-    // frame 1:
-    npSetLED(12, 255, 0, 0);
-    npWrite();
-    sleep_ms(delay);
-    npClear();
-
-    // frame 2:
-    npSetLED(1, 255, 0, 0);
-    npSetLED(2, 255, 0, 0);
-    npSetLED(3, 255, 0, 0);
-
-    npWrite();
-    sleep_ms(delay);
-    npClear();
-}
-=======
 
 //mapeamento "zig-zag" na matriz
 int getIndex(int x, int y){
@@ -1419,4 +1400,3 @@ void davi(){
     sleep_ms(400);
     
 }
->>>>>>> 595a3f4abc28d3acbe27802d895766bb94aa5365

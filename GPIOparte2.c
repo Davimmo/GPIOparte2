@@ -138,7 +138,7 @@ int main()
 
                 break;
             case '3':
-
+                davi();
                 break;
 
             case '4':
