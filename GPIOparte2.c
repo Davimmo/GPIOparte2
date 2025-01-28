@@ -164,6 +164,8 @@ int main()
 
             case '4':
 
+                animacao_nuvem();
+
                 break;
             
             case '5':
@@ -191,6 +193,8 @@ int main()
                 break;
 
             case 'C':
+
+                tecla_c();
                 
                 break;
             case '*':
