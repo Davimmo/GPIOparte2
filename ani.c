@@ -604,6 +604,16 @@ void tecla_c(){
     npWrite();
 }
 
+void tecla_b(){
+    npClear();
+    int i=0;
+    for(i=0;i<25;i++){
+        npSetLED(i,0,0,255);
+    }
+    npWrite();
+}
+
+
 void davi(){
     //frame 0:
     npSetLED(12,255,0,0);

@@ -10,5 +10,6 @@ void npWrite();
 void davi();
 void animacao_nuvem();
 void tecla_c();
+void tecla_b();
 
 #endif
