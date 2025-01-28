@@ -5,6 +5,7 @@
 #include "hardware/clocks.h"
 #include "giroflex.h"
 #include "ani.h"
+#include "pico/bootrom.h"
 
 #define LED_PIN 7
 

@@ -92,8 +92,7 @@ void npWrite()
     sleep_us(100); // Espera 100us, sinal de RESET do datasheet.
 }
 
-void Yuri()
-{
+void Yuri(){
 
     // Aqui, você desenha nos LEDs.
 
