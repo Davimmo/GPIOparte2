@@ -113,7 +113,7 @@ int main()
     npInit(LED_PIN);
     npClear();
     npWrite();
-    sleep_ms(500);
+    sleep_ms(5000);
 
 
 
