@@ -190,9 +190,9 @@ int main()
                 break;
 
             case 'D':
-
+                tecla_d();
                 break;
-                
+
             case '*':
                 reset_usb_boot(0, 0); // Reinicia o Raspberry em modo bootloader
                 

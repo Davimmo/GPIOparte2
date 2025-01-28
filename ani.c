@@ -600,10 +600,6 @@ void tecla_c(){
             }
         }
     npWrite();
-    sleep_ms(4000);
-    npClear();
-    sleep_ms(4000);
-    npWrite();
 }
 
 void tecla_b(){
@@ -614,6 +610,16 @@ void tecla_b(){
     }
     npWrite();
 }
+
+void tecla_d(){
+    npClear();
+    int i=0;
+    for(i=0;i<25;i++){
+        npSetLED(i,0,127,0);
+    }
+    npWrite();
+}
+
 
 
 void davi(){
