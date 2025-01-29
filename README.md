@@ -43,7 +43,7 @@ As teclas do teclado matricial são associadas às seguintes funções:
 - **C** - Deixa todos os LEDs na cor vermelha em 80% da potência
 - **D** - Deixa todos os LEDs na cor verde em 50% da potência 
 - **#** - Deixa todos os LEDs na cor branca em 20% da potência
-- ***** - Reinicia a Raspberry Pi Pico em modo bootloader
+- **\*** - Reinicia a Raspberry Pi Pico em modo bootloader
 
 ## Compilação e Upload
 1. Clone este repositório.
