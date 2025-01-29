@@ -1,44 +1,58 @@
-# GPIOparte2
+# Projeto Raspberry Pi Pico - Interface com Teclado Matricial e Periféricos
 
-_______________________________________________________________________________________________
-JJaime Fernandes Dos Reis Neto
 
-# Snake Game com Matriz de LEDs WS2812 e Raspberry Pi Pico W
-
-Este projeto implementa uma versão do clássico jogo Snake utilizando uma matriz de LEDs WS2812, controlada por um Raspberry Pi Pico W. O jogo inclui efeitos de iluminação, controle de velocidade e sons emitidos pelo um buzzer.
+Este projeto utiliza a Raspberry Pi Pico para interagir com um teclado matricial 4x4, dois buzzers e uma matriz de LEDs 5x5. O sistema permite a detecção de teclas pressionadas e a execução de diferentes funções associadas a cada tecla. Este projeto, desenvolvido no contexto do **EmbarcaTech**, tem como objetivo explorar os terminais GPIO do microcontrolador **RP2040** da placa **Raspberry Pi Pico W**. Através de uma integração com o simulador **Wokwi** no **Visual Studio Code**, é possível realizar a simulação e verificação do funcionamento dos pinos GPIO para controle dos LEDs e dos buzzers.
 
 ## Funcionalidades
+- Leitura de teclado matricial 4x4
+- Controle de buzzer
+- Controle de LEDs NeoPixel
+- Execução de funções associadas a teclas
+- Modo bootloader via tecla especial
 
-- **Matriz de LEDs (5x5)**: A cobra é representada por LEDs que muda de cor conforme a posição
-  - Cabeça: Azul
-  - Corpo: Vermelho
-  - Maçã: Verde.
-- **Aceleração Progressiva**: A velocidade da cobra aumenta à medida que ela coome a maça e cresce.
-- **Som**: Tons são tocados ao consumir uma maçã e durante a animação final.
-- **Animação Final**: Quando a cobra preenche toda a matriz, uma sequência de cores é exibida, acompanhada por sons.
-- **Reinício Automático**: O jogo reinicia automaticamente ao término.
+## Hardware Utilizado
+- Raspberry Pi Pico
+- Teclado matricial 4x4
+- Buzzer
+- LEDs NeoPixel
+- Fios e conexões
 
-## Pinos Utilizados
+## Dependências
+Este código faz uso da SDK do Raspberry Pi Pico. Para compilar e rodar, certifique-se de ter instalado:
+- SDK do Raspberry Pi Pico W
+- CMake
+- Extensão Wokwi
 
-| Função      | GPIO  |
-|-------------|-------|
-| Matriz LEDs | 7     |
-| Buzzer A    | 10    |
-| Buzzer B    | 21    |
+## Como Usar
+1. Conecte os periféricos conforme definido nos pinos.
+2. Compile e carregue o firmware na Raspberry Pi Pico.
+3. A placa iniciará a leitura do teclado e executará as funções associadas a cada tecla.
+4. Para entrar no modo bootloader, pressione a tecla '*'.
 
+## Mapeamento de Teclas
+As teclas do teclado matricial são associadas às seguintes funções:
+- **1** - Executa a função `principal()`
+- **2** - Executa a função `Yuri()`
+- **3** - Executa a função `davi()`
+- **4** - Executa a função `animacao_nuvem()`
+- **5** - Executa a função `snake_game()`
+- **A** - Desliga todos os LEDs
+- **B** - Deixa todos os LEDs na cor azul em 100% da potência
+- **C** - Deixa todos os LEDs na cor vermelha em 80% da potência
+- **D** - Deixa todos os LEDs na cor verde em 50% da potência 
+- **#** - Deixa todos os LEDs na cor branca em 20% da potência
+- ***** - Reinicia a Raspberry Pi Pico em modo bootloader
 
-## Como Funciona
+## Compilação e Upload
+1. Clone este repositório.
+2. Compile o código utilizando o CMake.
+3. Copie o arquivo `.uf2` gerado para a unidade da Raspberry Pi Pico em modo bootloader.
 
-1. **Inicialização**: 
-   - LEDs são inicializados com a cor apagada.
-   - A cobra inicia na posição inicial e uma maçã é gerada aleatoriamente.
-2. **Movimento**:
-   - A cobra se move continuamente, mudando de direção ao consumir maçãs.
-   - Quando a cobra come uma maçã:
-     - Ela cresce.
-     - Um som é tocado.
-     - Uma nova maçã é gerada.
-   - Se a cobra colidir consigo mesma ou preencher toda a matriz, o jogo termina.
-3. **Fim do Jogo**:
-   - Ao preencher toda a matriz, uma animação final é exibida.
-   - O jogo é reiniciado automaticamente.
+## Autores
+- **Davi Bezerra Cavalcanti**
+- **João Vitor Maciel Lima**
+- **Jaime Fernandes dos Reis Neto**
+- **Maria Bianca Vitoria Coelho Marinho de Lima**
+- **Yuri Silva Reis**
+- **José Ricardo de Souza Santos (zrcrd)**
+
