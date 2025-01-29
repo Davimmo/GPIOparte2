@@ -1,4 +1,4 @@
-# Projeto Raspberry Pi Pico - Interface com Teclado Matricial e Periféricos
+# Projeto Raspberry Pi Pico W - Interface com Teclado Matricial e Periféricos
 
 # Vídeo sobre utilização do projeto: https://youtu.be/bacr5Y2bLQw
 
