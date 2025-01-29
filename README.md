@@ -53,6 +53,6 @@ As teclas do teclado matricial são associadas às seguintes funções:
 - **João Vitor Maciel Lima**
 - **Jaime Fernandes dos Reis Neto**
 - **Maria Bianca Vitoria Coelho Marinho de Lima**
-- **Yuri Silva Reis**
+- **Yuri Reis Silva**
 - **José Ricardo de Souza Santos (zrcrd)**
 
