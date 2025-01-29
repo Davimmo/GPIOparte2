@@ -43,12 +43,12 @@ As teclas do teclado matricial são associadas às seguintes funções:
 - **C** - Deixa todos os LEDs na cor vermelha em 80% da potência
 - **D** - Deixa todos os LEDs na cor verde em 50% da potência 
 - **#** - Deixa todos os LEDs na cor branca em 20% da potência
-- **\*** - Reinicia a Raspberry Pi Pico em modo bootloader
+- **\*** - Coloca a Raspberry Pi Pico W em modo bootloader
 
 ## Compilação e Upload
 1. Clone este repositório.
 2. Compile o código utilizando o CMake.
-3. Copie o arquivo `.uf2` gerado para a unidade da Raspberry Pi Pico em modo bootloader.
+3. Copie o arquivo `.uf2` gerado para a unidade da Raspberry Pi Pico W em modo bootloader ou teste pelo simulador Wokwi.
 
 ## Autores
 - **Davi Bezerra Cavalcanti**
