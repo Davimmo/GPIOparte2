@@ -1,5 +1,7 @@
 # Projeto Raspberry Pi Pico - Interface com Teclado Matricial e Periféricos
 
+# Vídeo sobre utilização do projeto: https://youtu.be/bacr5Y2bLQw
+
 
 Este projeto utiliza a Raspberry Pi Pico para interagir com um teclado matricial 4x4, dois buzzers e uma matriz de LEDs 5x5. O sistema permite a detecção de teclas pressionadas e a execução de diferentes funções associadas a cada tecla. Este projeto, desenvolvido no contexto do **EmbarcaTech**, tem como objetivo explorar os terminais GPIO do microcontrolador **RP2040** da placa **Raspberry Pi Pico W**. Através de uma integração com o simulador **Wokwi** no **Visual Studio Code**, é possível realizar a simulação e verificação do funcionamento dos pinos GPIO para controle dos LEDs e dos buzzers.
 
