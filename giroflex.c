@@ -99,15 +99,15 @@ void Giroflex(){
         // Acende o LED
         npSetLED(0, vermelho);
         npWrite();
-        sleep_ms(125); // Mantém o LED aceso por 500ms
+        sleep_ms(125); // Mantém o LED aceso por 125ms
 
         npSetLED(1, vermelho);
         npWrite();
-        sleep_ms(125); // Mantém o LED aceso por 500ms
+        sleep_ms(125); // Mantém o LED aceso por 125ms
 
         npSetLED(2, vermelho);
         npWrite();
-        sleep_ms(125); // Mantém o LED aceso por 500ms
+        sleep_ms(125); // Mantém o LED aceso por 125ms
 
         npSetLED(0, 0, 0, 0);
         npWrite();
@@ -115,7 +115,7 @@ void Giroflex(){
         // Apaga o LED
         npSetLED(1, 0, 0, 0);
         npWrite();
-        sleep_ms(125); // Mantém o LED apagado por 500ms
+        sleep_ms(125); // Mantém o LED apagado por 125ms
 
         npSetLED(2, 0, 0, 0);
         npWrite();
