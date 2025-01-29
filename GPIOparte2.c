@@ -107,6 +107,7 @@ int main()
     stdio_init_all();
     keypad_init();
     gpio_set_function(BUZZER_PIN,GPIO_FUNC_PWM);
+    gpio_set_function(10,GPIO_FUNC_PWM);
     // Inicializa entradas e saídas.
     stdio_init_all();
 
