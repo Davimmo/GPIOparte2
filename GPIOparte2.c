@@ -6,6 +6,7 @@
 #include "giroflex.h"
 #include "ani.h"
 #include "pico/bootrom.h"
+#include "snake_game.h"
 
 #define LED_PIN 7
 
@@ -153,7 +154,7 @@ int main()
                 break;
 
             case '5':
-
+                snake_game();
                 break;
 
             case '6':

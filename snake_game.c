@@ -4,13 +4,12 @@
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
 #include "hardware/pwm.h"
-#include "ws2818b.pio.h"
 #include "snake_game.h"  // Incluir o header para as variáveis externas
 
 // Variáveis globais
-npLED_t leds[LED_COUNT];
-PIO np_pio;
-uint sm;
+npLED_t leds_jaime[LED_COUNT];
+
+
 
 int snake[LED_COUNT];
 int snake_length = 1;
@@ -41,38 +40,23 @@ void play_tone(uint buzzer, int frequency, int duration, int volume) {
     sleep_ms(50);
 }
 
-void npInitLEDs(uint pin) { 
-    uint offset = pio_add_program(pio0, &ws2818b_program);
-    np_pio = pio0;
-    sm = pio_claim_unused_sm(np_pio, false);
-    if (sm < 0) {
-        np_pio = pio1;
-        sm = pio_claim_unused_sm(np_pio, true);
-    }
-    ws2818b_program_init(np_pio, sm, offset, pin, 800000.f);
-    for (uint i = 0; i < LED_COUNT; ++i) {
-        leds[i].R = 0;
-        leds[i].G = 0;
-        leds[i].B = 0;
-    }
-}
 
 void npSetLEDColor(const uint index, const uint8_t r, const uint8_t g, const uint8_t b) {
-    leds[index].R = r;
-    leds[index].G = g;
-    leds[index].B = b;
+    leds_jaime[index].R = r;
+    leds_jaime[index].G = g;
+    leds_jaime[index].B = b;
 }
 
-void npClearAllLEDs() {  
+void npClearAllleds_jaime() {  
     for (uint i = 0; i < LED_COUNT; ++i)
         npSetLEDColor(i, 0, 0, 0);
 }
 
-void npUpdateLEDs() {  
+void npUpdateleds_jaime() {  
     for (uint i = 0; i < LED_COUNT; ++i) {
-        pio_sm_put_blocking(np_pio, sm, leds[i].G);
-        pio_sm_put_blocking(np_pio, sm, leds[i].R);
-        pio_sm_put_blocking(np_pio, sm, leds[i].B);
+        pio_sm_put_blocking(np_pio, sm, leds_jaime[i].G);
+        pio_sm_put_blocking(np_pio, sm, leds_jaime[i].R);
+        pio_sm_put_blocking(np_pio, sm, leds_jaime[i].B);
     }
     sleep_us(100);
 }
@@ -135,7 +119,7 @@ void moveSnake() {
 }
 
 void drawSnake() {
-    npClearAllLEDs();
+    npClearAllleds_jaime();
     if (snake_length > 0) {
         npSetLEDColor(snake[0], 0x00, 0x00, 0xFF); // Cabeça azul
     }
@@ -145,26 +129,26 @@ void drawSnake() {
     if (apple_position != -1) {
         npSetLEDColor(apple_position, 0x00, 0xFF, 0x00); // Maçã verde
     }
-    npUpdateLEDs();
+    npUpdateleds_jaime();
 }
 
 // Animação final 
 void finalAnimation() {
     for (int i = 0; i < 5; i++) {
-        npClearAllLEDs();
-        npUpdateLEDs();
+        npClearAllleds_jaime();
+        npUpdateleds_jaime();
         play_tone(BUZZER_A, 1000, 100, 80);
         sleep_ms(200);
         
         for (int j = 0; j < LED_COUNT; j++) {
             npSetLEDColor(j, rand() % 255, rand() % 255, rand() % 255);
         }
-        npUpdateLEDs();
+        npUpdateleds_jaime();
         play_tone(BUZZER_B, 1500, 100, 80);
         sleep_ms(200);
     }
-    npClearAllLEDs();
-    npUpdateLEDs();
+    npClearAllleds_jaime();
+    npUpdateleds_jaime();
     sleep_ms(2000);
 }
 
@@ -172,7 +156,7 @@ void snake_game() {
     while (!game_over) {
         moveSnake();
         drawSnake();
-        int delay = 1000; 
+        int delay = 100; 
         //acelera a cobra à medida que cresce
         int current_delay = delay - (speed_factor * 20);  
         if (current_delay < 50) {
@@ -193,8 +177,8 @@ void snake_game() {
     }
 
     // Reiniciar o jogo
-    npClearAllLEDs();
-    npUpdateLEDs();
+    npClearAllleds_jaime();
+    npUpdateleds_jaime();
     sleep_ms(2000);
     snake_length = 1;
     snake_direction = 1;
@@ -203,20 +187,18 @@ void snake_game() {
     game_over = false;
 }
 
-int main() {
+int jogo() {
     stdio_init_all();
-    npInitLEDs(LED_PIN);  
+    npInitleds_jaime(LED_PIN);  
     gpio_set_function(BUZZER_A, GPIO_FUNC_PWM);
     gpio_set_function(BUZZER_B, GPIO_FUNC_PWM);
     snake[0] = 0;
     
-    while (true) { // Loop infinito para reiniciar o jogo
         apple_position = generateApple();
         snake_length = 1;
         snake_direction = 1;
         game_over = false;
         snake_game();
-    }
 
     return 0;
 }

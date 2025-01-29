@@ -8,9 +8,9 @@
 
 // Definições de constantes
 #define LED_COUNT 25   // Exemplo, ajuste conforme necessário
-#define LED_PIN 0      // Pino onde o LED está conectado
-#define BUZZER_A 2     // Pino do buzzer A
-#define BUZZER_B 3     // Pino do buzzer B
+#define LED_PIN 7      // Pino onde o LED está conectado
+#define BUZZER_A 21     // Pino do buzzer A
+#define BUZZER_B 10    // Pino do buzzer B
 #define TEMPO_NOTA 100 // Duração da nota
 
 // Tipos de dados
@@ -31,7 +31,7 @@ typedef struct {
 
 // Declaração de funções
 void play_tone(uint buzzer, int frequency, int duration, int volume);
-void npInitLEDs(uint pin);
+void npInitleds_jaime(uint pin);
 void npSetLEDColor(const uint index, const uint8_t r, const uint8_t g, const uint8_t b);
 void npClearAllLEDs();
 void npUpdateLEDs();
@@ -48,3 +48,5 @@ extern uint sm;
 extern GameState game_state;
 
 #endif // SNAKE_GAME_H
+
+
